@@ -1,0 +1,11 @@
+{
+  "title": "Flovahar",
+  "description": "This web application enables seamless navigation between pages with functional buttons, enhancing user experience for efficient browsing.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
