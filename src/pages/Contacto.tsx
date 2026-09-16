@@ -1,170 +1,90 @@
-import svgPaths from "../../imports/svg-ivg705xiln";
+const mapImg =
+  "https://images.unsplash.com/photo-1615488913817-095134dfeb54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800";
 
-type Props = { onNavigate: (page: string) => void; currentPage: string };
+const rows = [
+  {
+    label: "Dirección",
+    value: "Av. de los Claveles 452, Jardines del Prado",
+    cls: "bg-[#eff2f0]",
+    iconCls: "text-[#5f7d6b]",
+  },
+  {
+    label: "Horario de Atención",
+    value: "Lunes a Sábado: 9:00 AM – 8:00 PM · Domingos: 10:00 AM – 4:00 PM",
+    cls: "bg-[#f8ebef]",
+    iconCls: "text-[#2e1e1c]",
+  },
+  {
+    label: "Facebook",
+    value: "/floristeriaMartha",
+    cls: "bg-[#ece9f0]",
+    iconCls: "text-[#a195b8]",
+  },
+];
 
-const mapImg = "https://images.unsplash.com/photo-1615488913817-095134dfeb54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800";
-
-function IosSignal() {
+export default function Contacto() {
   return (
-    <div className="relative shrink-0 size-[20px]">
-      <svg className="absolute block inset-0 size-full" fill="none" height="20" preserveAspectRatio="none" viewBox="0 0 20 20" width="20">
-        <g><path clipRule="evenodd" d={svgPaths.p2bb6eb80} fill="#2E1E1C" fillRule="evenodd" /></g>
-      </svg>
-    </div>
-  );
-}
-
-function IosWifiSignal() {
-  return (
-    <div className="relative shrink-0 size-[20px]">
-      <svg className="absolute block inset-0 size-full" fill="none" height="20" preserveAspectRatio="none" viewBox="0 0 20 20" width="20">
-        <g><path clipRule="evenodd" d={svgPaths.p646c5c0} fill="#2E1E1C" fillRule="evenodd" /></g>
-      </svg>
-    </div>
-  );
-}
-
-function IosBatteryFull() {
-  return (
-    <div className="h-[20px] relative shrink-0 w-[28px]">
-      <svg className="absolute block inset-0 size-full" fill="none" height="20" preserveAspectRatio="none" viewBox="0 0 28 20" width="28">
-        <g><path d={svgPaths.p66c9640} fill="#2E1E1C" /></g>
-      </svg>
-    </div>
-  );
-}
-
-export default function Contacto({ onNavigate, currentPage }: Props) {
-  const active = "#5f7d6b";
-  const inactive = "#6b5a58";
-  const isInicio = currentPage === "inicio";
-  const isCatalogo = currentPage === "catalogo";
-  const isNosotros = currentPage === "nosotros";
-  const isContacto = currentPage === "contacto";
-
-  return (
-    <div className="bg-[#fdfbfa] content-stretch flex flex-col items-start justify-between relative size-full">
-      <div className="content-stretch flex flex-col items-start relative shrink-0 w-full overflow-y-auto">
-        {/* Status Bar */}
-        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full sm:hidden">
-          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[14px] whitespace-nowrap">9:41</p>
-          <div className="content-stretch flex gap-[6px] items-start relative shrink-0">
-            <IosSignal /><IosWifiSignal /><IosBatteryFull />
-          </div>
-        </div>
-
-        {/* Header */}
-        <div className="[word-break:break-word] content-stretch flex flex-col gap-[6px] items-start leading-[normal] not-italic pb-[16px] pt-[20px] px-[24px] relative shrink-0 w-full">
-          <p className="font-['Instrument_Serif:Regular',sans-serif] relative shrink-0 text-[#2e1e1c] text-[36px] whitespace-nowrap">Contacto</p>
-          <p className="font-['Inter:Regular',sans-serif] font-normal min-w-full relative shrink-0 text-[#6b5a58] text-[14px] w-[min-content]">Estamos encantados de atenderte y hacer realidad tus ideas florales.</p>
-        </div>
-
-        {/* Map */}
-        <div className="content-stretch flex flex-col items-start pb-[20px] px-[24px] relative shrink-0 w-full">
-          <div className="h-[160px] relative rounded-[16px] shrink-0 w-full overflow-hidden">
-            <img alt="Ubicación" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={mapImg} />
-          </div>
-        </div>
-
-        {/* Info Panel + WhatsApp */}
-        <div className="content-stretch flex flex-col gap-[24px] items-start px-[24px] relative shrink-0 w-full pb-[24px]">
-          {/* Info Panel */}
-          <div className="bg-white content-stretch flex flex-col gap-[16px] items-start p-[20px] relative rounded-[20px] shrink-0 w-full">
-            <div aria-hidden className="absolute border border-[#efebe9] border-solid inset-0 pointer-events-none rounded-[20px]" />
-            {/* Address */}
-            <div className="content-stretch flex gap-[12px] items-start relative shrink-0 w-full">
-              <div className="bg-[#eff2f0] content-stretch flex items-center justify-center relative rounded-[16px] shrink-0 size-[32px]">
-                <svg className="size-[16px]" fill="none" height="16" viewBox="0 0 16 16" width="16">
-                  <path d={svgPaths.p8b99100} stroke="#5F7D6B" strokeLinecap="round" strokeWidth="2" />
-                </svg>
-              </div>
-              <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start leading-[normal] min-w-px not-italic relative">
-                <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#2e1e1c] text-[12px] uppercase whitespace-nowrap">Dirección</p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal min-w-full relative shrink-0 text-[#6b5a58] text-[14px] w-[min-content]">Av. de los Claveles 452, Jardines del Prado</p>
-              </div>
-            </div>
-            <div className="h-px bg-[#EFEBE9] w-full" />
-            {/* Hours */}
-            <div className="content-stretch flex gap-[12px] items-start relative shrink-0 w-full">
-              <div className="bg-[#f8ebef] content-stretch flex items-center justify-center relative rounded-[16px] shrink-0 size-[32px]">
-                <svg className="size-[16px]" fill="none" height="16" viewBox="0 0 16 16" width="16">
-                  <clipPath id="clip-clock"><rect fill="white" height="16" width="16" /></clipPath>
-                  <g clipPath="url(#clip-clock)">
-                    <path d={svgPaths.p8765900} stroke="#2E1E1C" strokeLinecap="round" strokeWidth="2" />
-                  </g>
-                </svg>
-              </div>
-              <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start leading-[normal] min-w-px not-italic relative">
-                <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#2e1e1c] text-[12px] uppercase whitespace-nowrap">Horario de Atención</p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal min-w-full relative shrink-0 text-[#6b5a58] text-[14px] w-[min-content]">Lunes a Sábado: 9:00 AM – 8:00 PM</p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal min-w-full relative shrink-0 text-[#6b5a58] text-[14px] w-[min-content]">Domingos: 10:00 AM – 4:00 PM</p>
-              </div>
-            </div>
-            <div className="h-px bg-[#EFEBE9] w-full" />
-            {/* Facebook */}
-            <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full">
-              <div className="bg-[#ece9f0] content-stretch flex items-center justify-center relative rounded-[16px] shrink-0 size-[32px]">
-                <svg className="size-[16px]" fill="none" height="16" viewBox="0 0 16 16" width="16">
-                  <path d={svgPaths.p164fd480} stroke="#A195B8" strokeLinecap="round" strokeWidth="2" />
-                </svg>
-              </div>
-              <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start leading-[normal] min-w-px not-italic relative">
-                <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#2e1e1c] text-[12px] uppercase whitespace-nowrap">Facebook</p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal min-w-full relative shrink-0 text-[#6b5a58] text-[14px] w-[min-content]">/floristeriaMartha</p>
-              </div>
-            </div>
-          </div>
-
-          {/* WhatsApp */}
-          <div className="content-stretch flex flex-col gap-[10px] items-center relative shrink-0 w-full">
-            <button className="bg-[#25d366] content-stretch flex gap-[10px] h-[56px] items-center justify-center relative rounded-[28px] shrink-0 w-full cursor-pointer border-none">
-              <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-                <clipPath id="clip-msg"><rect fill="white" height="22" width="22" /></clipPath>
-                <g clipPath="url(#clip-msg)">
-                  <path d={svgPaths.pc7f2500} stroke="white" strokeLinecap="round" strokeWidth="2" />
-                </g>
-              </svg>
-              <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[16px] text-white whitespace-nowrap">Escríbenos por WhatsApp</p>
-            </button>
-            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#6b5a58] text-[12px] text-center w-full">Consulta inmediata sobre arreglos personalizados y envíos.</p>
-          </div>
-        </div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="max-w-3xl">
+        <h1 className="font-serif text-3xl sm:text-4xl text-[#2e1e1c]">
+          Contacto
+        </h1>
+        <p className="text-[#6b5a58] text-sm sm:text-base mt-2">
+          Estamos encantados de atenderte y hacer realidad tus ideas florales.
+        </p>
       </div>
 
-      {/* Bottom Nav */}
-      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full sm:hidden">
-        <div aria-hidden className="absolute border-[#efebe9] border-solid border-t inset-0 pointer-events-none" />
-        <div className="content-stretch flex h-[64px] items-center justify-between px-[24px] relative shrink-0 w-full">
-          <button onClick={() => onNavigate("inicio")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-            <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-              <path d={svgPaths.p1e6ad500} stroke={isInicio ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-            </svg>
-            <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isInicio ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Inicio</p>
-          </button>
-          <button onClick={() => onNavigate("catalogo")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-            <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-              <path d={svgPaths.p10635e00} stroke={isCatalogo ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-            </svg>
-            <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isCatalogo ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Catálogo</p>
-          </button>
-          <button onClick={() => onNavigate("nosotros")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-            <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-              <path d={svgPaths.p7608100} stroke={isNosotros ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-            </svg>
-            <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isNosotros ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Nosotros</p>
-          </button>
-          <button onClick={() => onNavigate("contacto")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-            <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-              <clipPath id="clip-cont-phone"><rect fill="white" height="22" width="22" /></clipPath>
-              <g clipPath="url(#clip-cont-phone)">
-                <path d={svgPaths.p28009a00} stroke={isContacto ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-              </g>
-            </svg>
-            <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isContacto ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Contacto</p>
-          </button>
+      <div className="grid lg:grid-cols-2 gap-8 mt-8">
+        <div className="rounded-2xl overflow-hidden aspect-[16/10] relative">
+          <img
+            alt="Ubicación de la floristería"
+            className="absolute inset-0 size-full object-cover"
+            src={mapImg}
+          />
         </div>
-        <div className="content-stretch flex items-start justify-center pb-[8px] pt-[12px] relative shrink-0 w-full">
-          <div className="bg-[#2e1e1c] h-[5px] relative rounded-[100px] shrink-0 w-[139px]" />
+
+        <div className="flex flex-col gap-6">
+          <div className="bg-white rounded-2xl border border-[#efebe9] p-6 space-y-5">
+            {rows.map((r) => (
+              <div key={r.label}>
+                <div className="flex gap-3">
+                  <span
+                    className={`${r.cls} ${r.iconCls} size-9 rounded-xl flex items-center justify-center shrink-0`}
+                    aria-hidden
+                  >
+                    <svg className="size-4" fill="none" viewBox="0 0 16 16">
+                      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="2" />
+                      <path d="M8 4.5V8L10 9.5" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+                    </svg>
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-bold text-[#2e1e1c] text-xs uppercase">
+                      {r.label}
+                    </p>
+                    <p className="text-[#6b5a58] text-sm mt-0.5">{r.value}</p>
+                  </div>
+                </div>
+                {r.label !== "Facebook" && (
+                  <div className="h-px bg-[#EFEBE9] mt-5" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          <a
+            href="https://wa.me/50433805133"
+            target="_blank"
+            rel="noreferrer"
+            className="bg-[#25d366] text-white font-bold text-base h-14 rounded-full flex items-center justify-center gap-2.5 hover:bg-[#1fb254] transition-colors"
+          >
+            <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Escríbenos por WhatsApp
+          </a>
+          <p className="text-[#6b5a58] text-xs text-center">
+            Consulta inmediata sobre arreglos personalizados y envíos.
+          </p>
         </div>
       </div>
     </div>

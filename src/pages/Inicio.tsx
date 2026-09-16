@@ -1,139 +1,164 @@
-import svgPaths from "../../imports/svg-4gd3qnowmw";
+import type { Page } from "../App";
+import { categories, categoryImages } from "../data/catalog";
 
-type Props = { onNavigate: (page: string) => void; currentPage: string };
+type Props = {
+  onNavigate: (page: Page) => void;
+  openCategory: (category: string) => void;
+};
 
-const heroImg = "https://latinflores.com/cdn/shop/files/SonrisaenPetalos.jpg?v=1746978115&width=990";
+const heroImg =
+  "https://latinflores.com/cdn/shop/files/SonrisaenPetalos.jpg?v=1746978115&width=990";
 
-function IosSignal() {
+const steps = [
+  {
+    n: "01",
+    title: "Elige tus flores",
+    text: "Explora nuestras colecciones y selecciona el arreglo perfecto para tu ocasión.",
+  },
+  {
+    n: "02",
+    title: "Personaliza tu pedido",
+    text: "Agrega una dedicatoria, chocolate o detalles especiales con nuestra ayuda.",
+  },
+  {
+    n: "03",
+    title: "Recíbelo a domicilio",
+    text: "Entregamos con estilo y puntualidad directo a la puerta de tu ser querido.",
+  },
+];
+
+export default function Inicio({ onNavigate, openCategory }: Props) {
   return (
-    <div className="relative shrink-0 size-[20px]">
-      <svg className="absolute block inset-0 size-full" fill="none" height="20" preserveAspectRatio="none" viewBox="0 0 20 20" width="20">
-        <g><path clipRule="evenodd" d={svgPaths.p2bb6eb80} fill="#2E1E1C" fillRule="evenodd" /></g>
-      </svg>
-    </div>
-  );
-}
-
-function IosWifiSignal() {
-  return (
-    <div className="relative shrink-0 size-[20px]">
-      <svg className="absolute block inset-0 size-full" fill="none" height="20" preserveAspectRatio="none" viewBox="0 0 20 20" width="20">
-        <g><path clipRule="evenodd" d={svgPaths.p646c5c0} fill="#2E1E1C" fillRule="evenodd" /></g>
-      </svg>
-    </div>
-  );
-}
-
-function IosBatteryFull() {
-  return (
-    <div className="h-[20px] relative shrink-0 w-[28px]">
-      <svg className="absolute block inset-0 size-full" fill="none" height="20" preserveAspectRatio="none" viewBox="0 0 28 20" width="28">
-        <g><path d={svgPaths.p66c9640} fill="#2E1E1C" /></g>
-      </svg>
-    </div>
-  );
-}
-
-function StatusBar() {
-  return (
-    <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full sm:hidden">
-      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[14px] whitespace-nowrap">9:41</p>
-      <div className="content-stretch flex gap-[6px] items-start relative shrink-0">
-        <IosSignal /><IosWifiSignal /><IosBatteryFull />
-      </div>
-    </div>
-  );
-}
-
-export default function Inicio({ onNavigate, currentPage }: Props) {
-  return (
-    <div className="bg-[#fdfbfa] content-stretch flex flex-col items-start justify-between relative size-full">
-      <div className="content-stretch flex flex-col items-start flex-1 min-h-0 overflow-y-auto relative w-full">
-        <StatusBar />
-        <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center leading-[normal] not-italic pb-[12px] pt-[20px] relative shrink-0 text-center w-full whitespace-nowrap">
-          <p className="font-['Instrument_Serif:Regular',sans-serif] relative shrink-0 text-[#2e1e1c] text-[38px]">Floristería Martha</p>
-          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold relative shrink-0 text-[#5f7d6b] text-[11px] uppercase">Arte y Elegancia Botánica</p>
-        </div>
-        <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-full">
-          <div className="h-[320px] relative rounded-[24px] shrink-0 w-full overflow-hidden">
-            <img alt="Floristería Hinu" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={heroImg} />
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-[16px] items-center px-[24px] relative shrink-0 w-full">
-          <div className="bg-[#f8ebef] content-stretch flex gap-[6px] items-center px-[16px] py-[8px] relative rounded-[100px] shrink-0">
-            <div aria-hidden className="absolute border border-[#e6b0b8] border-solid inset-0 pointer-events-none rounded-[100px]" />
-            <div className="relative shrink-0 size-[16px]">
-              <svg className="absolute block inset-0 size-full" fill="none" height="16" preserveAspectRatio="none" viewBox="0 0 16 16" width="16">
-                <g><path d={svgPaths.p2c68d480} stroke="#2E1E1C" strokeLinecap="round" strokeWidth="2" /></g>
+    <div>
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div>
+            <span className="inline-flex items-center gap-2 bg-[#f8ebef] border border-[#e6b0b8] text-[#2e1e1c] text-xs font-semibold px-3.5 py-1.5 rounded-full">
+              <svg className="size-4" fill="none" viewBox="0 0 16 16">
+                <path d="M2 8.5V4.5C2 3.95 2.45 3.5 3 3.5H11V10H3C2.45 10 2 9.55 2 9V8.5Z" stroke="#5F7D6B" strokeLinejoin="round" strokeWidth="1.5" />
+                <path d="M11 5H13L15 7.5V10H15.5M11 10H15M6 10V10.5M10 10V10.5" stroke="#5F7D6B" strokeLinecap="round" strokeWidth="1.5" />
               </svg>
-            </div>
-            <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[13px] whitespace-nowrap">Entrega a domicilio disponible</p>
+              Entrega a domicilio disponible
+            </span>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-[#2e1e1c] mt-5">
+              Floristería exclusiva para momentos memorables
+            </h1>
+            <p className="text-[#6b5a58] mt-5 text-sm sm:text-base leading-relaxed max-w-md">
+              Diseños florales de autor confeccionados con las especies más finas
+              y frescas de la temporada.
+            </p>
+            <button
+              onClick={() => onNavigate("catalogo")}
+              className="mt-8 bg-[#5f7d6b] text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-[#4e6a58] transition-colors"
+            >
+              Ver Catálogo Floral
+            </button>
           </div>
-          <p className="font-['Instrument_Serif:Regular',sans-serif] leading-[1.15] min-w-full not-italic relative shrink-0 text-[#2e1e1c] text-[32px] text-center w-[min-content]">Floristería exclusiva para momentos memorables</p>
-          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.5] min-w-full not-italic relative shrink-0 text-[#6b5a58] text-[14px] text-center w-[min-content]">Diseños florales de autor confeccionados con las especies más finas y frescas de la temporada.</p>
+          <div className="rounded-2xl overflow-hidden aspect-[4/3] relative shadow-sm">
+            <img
+              alt="Ramo de flores frescas de la temporada"
+              className="absolute inset-0 size-full object-cover"
+              src={heroImg}
+            />
+          </div>
         </div>
-        <div className="content-stretch flex flex-col items-start pb-[24px] pt-[28px] px-[24px] relative shrink-0 w-full">
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="flex items-end justify-between gap-4 mb-8">
+            <div>
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#2e1e1c]">
+                Colecciones destacadas
+              </h2>
+              <p className="text-[#6b5a58] text-sm mt-2">
+                Descubre los favoritos de nuestros clientes.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate("catalogo")}
+              className="hidden sm:inline-flex text-[#5f7d6b] text-sm font-semibold hover:underline"
+            >
+              Ver todo
+            </button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {categories.slice(0, 3).map((c) => (
+              <button
+                key={c.name}
+                onClick={() => openCategory(c.name)}
+                className="text-left group"
+              >
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] relative bg-[#fdfbfa]">
+                  <img
+                    alt={c.name}
+                    className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src={categoryImages[c.name]}
+                  />
+                </div>
+                <p className="font-serif text-lg sm:text-xl mt-3 text-[#2e1e1c] leading-snug">
+                  {c.name}
+                </p>
+                <p className="text-[#5f7d6b] text-xs font-semibold mt-1">
+                  {c.price}
+                </p>
+              </button>
+            ))}
+            <button
+              onClick={() => onNavigate("catalogo")}
+              className="hidden md:flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#efebe9] aspect-[4/3] hover:border-[#5f7d6b] transition-colors"
+            >
+              <span className="font-serif text-2xl text-[#5f7d6b]">
+                Ver catálogo
+              </span>
+              <span className="text-xs text-[#6b5a58] mt-1">
+                Todas nuestras colecciones
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8ebef]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <h2 className="font-serif text-3xl sm:text-4xl text-center text-[#2e1e1c]">
+            ¿Cómo funciona?
+          </h2>
+          <p className="text-center text-[#6b5a58] text-sm mt-2 mb-10">
+            Pedir tus flores es muy sencillo.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-8">
+            {steps.map((s) => (
+              <div key={s.n} className="text-center">
+                <p className="font-serif text-5xl text-[#5f7d6b]">{s.n}</p>
+                <h3 className="font-semibold text-[#2e1e1c] mt-3">{s.title}</h3>
+                <p className="text-sm text-[#6b5a58] mt-2 leading-relaxed">
+                  {s.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#2e1e1c]">
+            Arte y elegancia botánica
+          </h2>
+          <p className="text-[#6b5a58] text-sm sm:text-base leading-relaxed mt-4">
+            Floristería Martha lleva desde 2010 convirtiendo sentimientos en
+            arreglos inolvidables. Trabajamos con flores importadas de primera
+            calidad y un diseño que se adapta a cada emoción.
+          </p>
           <button
-            onClick={() => onNavigate("catalogo")}
-            className="bg-[#5f7d6b] content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[24px] relative rounded-[26px] shrink-0 w-full cursor-pointer"
+            onClick={() => onNavigate("nosotros")}
+            className="mt-7 inline-flex border-2 border-[#5f7d6b] text-[#5f7d6b] font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-[#5f7d6b] hover:text-white transition-colors"
           >
-            <div className="relative shrink-0 size-[18px]">
-              <svg className="absolute block inset-0 size-full" fill="none" height="18" preserveAspectRatio="none" viewBox="0 0 18 18" width="18">
-                <g><path d={svgPaths.p39716d00} stroke="white" strokeLinecap="round" strokeWidth="2" /></g>
-              </svg>
-            </div>
-            <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[15px] text-white whitespace-nowrap">Ver Catálogo Floral</p>
+            Conoce más de nosotros
           </button>
         </div>
-      </div>
-      <BottomNav onNavigate={onNavigate} currentPage={currentPage} />
-    </div>
-  );
-}
-
-function BottomNav({ onNavigate, currentPage }: Props) {
-  const active = "#5f7d6b";
-  const inactive = "#6b5a58";
-  const isInicio = currentPage === "inicio";
-  const isCatalogo = currentPage === "catalogo";
-  const isNosotros = currentPage === "nosotros";
-  const isContacto = currentPage === "contacto";
-
-  return (
-    <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full sm:hidden">
-      <div aria-hidden className="absolute border-[#efebe9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="content-stretch flex h-[64px] items-center justify-between px-[24px] relative shrink-0 w-full">
-        <button onClick={() => onNavigate("inicio")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-          <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-            <path d={svgPaths.p1e6ad500} stroke={isInicio ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-          </svg>
-          <p className={`font-semibold leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isInicio ? "font-['Inter:Semi_Bold',sans-serif] text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] text-[#6b5a58] font-normal"}`}>Inicio</p>
-        </button>
-        <button onClick={() => onNavigate("catalogo")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-          <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-            <path d={svgPaths.p10635e00} stroke={isCatalogo ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-          </svg>
-          <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isCatalogo ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Catálogo</p>
-        </button>
-        <button onClick={() => onNavigate("nosotros")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-          <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-            <path d={svgPaths.p7608100} stroke={isNosotros ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-          </svg>
-          <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isNosotros ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Nosotros</p>
-        </button>
-        <button onClick={() => onNavigate("contacto")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
-          <svg className="size-[22px]" fill="none" height="22" viewBox="0 0 22 22" width="22">
-            <clipPath id="clip-inicio-phone"><rect fill="white" height="22" width="22" /></clipPath>
-            <g clipPath="url(#clip-inicio-phone)">
-              <path d={svgPaths.p28009a00} stroke={isContacto ? active : inactive} strokeLinecap="round" strokeWidth="2" />
-            </g>
-          </svg>
-          <p className={`leading-[normal] not-italic relative shrink-0 text-[11px] whitespace-nowrap ${isContacto ? "font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5f7d6b]" : "font-['Inter:Regular',sans-serif] font-normal text-[#6b5a58]"}`}>Contacto</p>
-        </button>
-      </div>
-      <div className="content-stretch flex items-start justify-center pb-[8px] pt-[12px] relative shrink-0 w-full">
-        <div className="bg-[#2e1e1c] h-[5px] relative rounded-[100px] shrink-0 w-[139px]" />
-      </div>
+      </section>
     </div>
   );
 }
