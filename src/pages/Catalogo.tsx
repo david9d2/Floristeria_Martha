@@ -60,7 +60,7 @@ export default function Catalogo({ onNavigate, currentPage }: Props) {
     <div className="bg-[#fdfbfa] flex flex-col relative size-full">
       <div className="flex flex-col flex-1 min-h-0 w-full overflow-y-auto">
         {/* Status Bar */}
-        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full">
+        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full sm:hidden">
           <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[14px] whitespace-nowrap">9:41</p>
           <div className="content-stretch flex gap-[6px] items-start relative shrink-0">
             <IosSignal /><IosWifiSignal /><IosBatteryFull />
@@ -86,12 +86,12 @@ export default function Catalogo({ onNavigate, currentPage }: Props) {
         </div>
 
         {/* Category Grid */}
-        <div className="content-stretch flex flex-col gap-[20px] items-start pb-[32px] px-[24px] relative shrink-0 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start pb-[32px] px-5 relative shrink-0 w-full">
           {categories.map((cat, i) => (
-            <div key={i} className="bg-white relative rounded-[16px] shrink-0 w-full">
-              <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
-                <div className="h-[150px] relative shrink-0 w-full">
-                  <img alt={cat.name} className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={categoryImages[i]} />
+            <div key={i} className="bg-white relative rounded-[16px] overflow-hidden">
+              <div className="content-stretch flex flex-col items-start relative size-full">
+                <div className="aspect-[4/3] relative w-full">
+                  <img alt={cat.name} className="absolute inset-0 object-cover pointer-events-none size-full" src={categoryImages[i]} />
                 </div>
                 <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-start leading-[normal] not-italic p-[14px] relative shrink-0 w-full">
                   <p className="font-['Instrument_Serif:Regular',sans-serif] relative shrink-0 text-[#2e1e1c] text-[22px] w-full">{cat.name}</p>
@@ -105,7 +105,7 @@ export default function Catalogo({ onNavigate, currentPage }: Props) {
       </div>
 
       {/* Bottom Nav */}
-      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full sm:hidden">
         <div aria-hidden className="absolute border-[#efebe9] border-solid border-t inset-0 pointer-events-none" />
         <div className="content-stretch flex h-[64px] items-center justify-between px-[24px] relative shrink-0 w-full">
           <button onClick={() => onNavigate("inicio")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">

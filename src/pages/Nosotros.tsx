@@ -1,6 +1,6 @@
 import svgPaths from "../../imports/svg-n9o7ojjqwr"
 
-type Props = { onNavigate: (page: string) => void currentPage: string }
+type Props = { onNavigate: (page: string) => void; currentPage: string }
 
 const storeImg =
   "https://images.unsplash.com/photo-1639696194673-67b86204b885?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080"
@@ -84,7 +84,7 @@ export default function Nosotros({ onNavigate, currentPage }: Props) {
     <div className="bg-[#fdfbfa] content-stretch flex flex-col items-start justify-between relative size-full">
       <div className="content-stretch flex flex-col items-start relative shrink-0 w-full overflow-y-auto">
         {/* Status Bar */}
-        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full">
+        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full sm:hidden">
           <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[14px] whitespace-nowrap">
             9:41
           </p>
@@ -155,7 +155,7 @@ export default function Nosotros({ onNavigate, currentPage }: Props) {
       </div>
 
       {/* Bottom Nav */}
-      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full sm:hidden">
         <div
           aria-hidden
           className="absolute border-[#efebe9] border-solid border-t inset-0 pointer-events-none"

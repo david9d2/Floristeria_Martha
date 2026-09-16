@@ -36,7 +36,7 @@ function IosBatteryFull() {
 
 function StatusBar() {
   return (
-    <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full">
+    <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full sm:hidden">
       <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[14px] whitespace-nowrap">9:41</p>
       <div className="content-stretch flex gap-[6px] items-start relative shrink-0">
         <IosSignal /><IosWifiSignal /><IosBatteryFull />
@@ -48,7 +48,7 @@ function StatusBar() {
 export default function Inicio({ onNavigate, currentPage }: Props) {
   return (
     <div className="bg-[#fdfbfa] content-stretch flex flex-col items-start justify-between relative size-full">
-      <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <div className="content-stretch flex flex-col items-start flex-1 min-h-0 overflow-y-auto relative w-full">
         <StatusBar />
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center leading-[normal] not-italic pb-[12px] pt-[20px] relative shrink-0 text-center w-full whitespace-nowrap">
           <p className="font-['Instrument_Serif:Regular',sans-serif] relative shrink-0 text-[#2e1e1c] text-[38px]">Floristería Martha</p>
@@ -100,7 +100,7 @@ function BottomNav({ onNavigate, currentPage }: Props) {
   const isContacto = currentPage === "contacto";
 
   return (
-    <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full">
+    <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full sm:hidden">
       <div aria-hidden className="absolute border-[#efebe9] border-solid border-t inset-0 pointer-events-none" />
       <div className="content-stretch flex h-[64px] items-center justify-between px-[24px] relative shrink-0 w-full">
         <button onClick={() => onNavigate("inicio")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">

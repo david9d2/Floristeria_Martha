@@ -46,7 +46,7 @@ export default function Contacto({ onNavigate, currentPage }: Props) {
     <div className="bg-[#fdfbfa] content-stretch flex flex-col items-start justify-between relative size-full">
       <div className="content-stretch flex flex-col items-start relative shrink-0 w-full overflow-y-auto">
         {/* Status Bar */}
-        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full">
+        <div className="content-stretch flex h-[44px] items-center justify-between px-[24px] relative shrink-0 w-full sm:hidden">
           <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#2e1e1c] text-[14px] whitespace-nowrap">9:41</p>
           <div className="content-stretch flex gap-[6px] items-start relative shrink-0">
             <IosSignal /><IosWifiSignal /><IosBatteryFull />
@@ -132,7 +132,7 @@ export default function Contacto({ onNavigate, currentPage }: Props) {
       </div>
 
       {/* Bottom Nav */}
-      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <div className="bg-white content-stretch flex flex-col items-start relative shrink-0 w-full sm:hidden">
         <div aria-hidden className="absolute border-[#efebe9] border-solid border-t inset-0 pointer-events-none" />
         <div className="content-stretch flex h-[64px] items-center justify-between px-[24px] relative shrink-0 w-full">
           <button onClick={() => onNavigate("inicio")} className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0 w-[64px] cursor-pointer bg-transparent border-none p-0">
