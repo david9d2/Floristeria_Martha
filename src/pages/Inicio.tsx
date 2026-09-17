@@ -1,13 +1,11 @@
 import type { Page } from "../App";
 import { categories, categoryImages } from "../data/catalog";
+import heroVideo from "../data/FloristeriaMartha.mp4";
 
 type Props = {
   onNavigate: (page: Page) => void;
   openCategory: (category: string) => void;
 };
-
-const heroImg =
-  "https://latinflores.com/cdn/shop/files/SonrisaenPetalos.jpg?v=1746978115&width=990";
 
 const steps = [
   {
@@ -54,11 +52,14 @@ export default function Inicio({ onNavigate, openCategory }: Props) {
               Ver Catálogo Floral
             </button>
           </div>
-          <div className="rounded-2xl overflow-hidden aspect-[4/3] relative shadow-sm">
-            <img
-              alt="Ramo de flores frescas de la temporada"
+          <div className="rounded-2xl overflow-hidden aspect-[4/3] relative shadow-sm bg-[#2e1e1c]">
+            <video
               className="absolute inset-0 size-full object-cover"
-              src={heroImg}
+              src={heroVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
             />
           </div>
         </div>

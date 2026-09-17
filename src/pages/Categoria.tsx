@@ -1,11 +1,13 @@
 import { categories, categoryImages, itemsByCategory } from "../data/catalog";
+import type { ProductItem } from "../data/catalog";
 
 type Props = {
   category: string;
   onBack: () => void;
+  onAddToCart: (item: ProductItem) => void;
 };
 
-export default function Categoria({ category, onBack }: Props) {
+export default function Categoria({ category, onBack, onAddToCart }: Props) {
   const items = itemsByCategory[category] ?? [];
   const price = categories.find((c) => c.name === category)?.price ?? "";
 
@@ -47,7 +49,8 @@ export default function Categoria({ category, onBack }: Props) {
         />
       </div>
       <p className="text-[#6b5a58] text-sm mb-8">
-        Selecciona el arreglo que más te guste y pídelo por WhatsApp.
+        Elige tus arreglos, agrégalos al carrito y envíanos tu pedido por
+        WhatsApp.
       </p>
 
       <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -70,14 +73,15 @@ export default function Categoria({ category, onBack }: Props) {
               <p className="text-[#5f7d6b] font-semibold text-sm mt-1">
                 {item.price}
               </p>
-              <a
-                href="https://wa.me/50400000000?text=Hola,%20quiero%20pedir:%20"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-3 inline-flex w-full items-center justify-center bg-[#5f7d6b] text-white text-xs font-semibold py-2.5 rounded-full hover:bg-[#4e6a58] transition-colors"
+              <button
+                onClick={() => onAddToCart(item)}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 bg-[#5f7d6b] text-white text-xs font-semibold py-3 rounded-full hover:bg-[#4e6a58] transition-colors"
               >
-                Pedir por WhatsApp
-              </a>
+                <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                </svg>
+                Agregar al carrito
+              </button>
             </div>
           </div>
         ))}

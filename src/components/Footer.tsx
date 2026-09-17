@@ -9,7 +9,7 @@ type Props = {
 const social = [
   { label: "Facebook", href: "https://facebook.com" },
   { label: "Instagram", href: "https://instagram.com" },
-  { label: "WhatsApp", href: "https://wa.me/50400000000" },
+  { label: "WhatsApp", href: "https://wa.me/50433805133" },
 ];
 
 function Footer({ onNavigate, onCategorySelect }: Props) {
